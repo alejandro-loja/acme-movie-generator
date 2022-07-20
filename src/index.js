@@ -4,12 +4,7 @@ import { Provider, connect } from "react-redux";
 import Movies from "./Movies";
 // import { HashRouter as Router, Route } from "react-router-dom";
 
-import store, {
-  fetchMovies,
-  createMovie,
-  deleteMovie,
-  updateMovie,
-} from "./store";
+import store, { fetchMovies } from "./store";
 
 class _App extends Component {
   componentDidMount() {
@@ -27,16 +22,6 @@ class _App extends Component {
 const mapDispatch = (dispatch) => {
   return {
     fetchMovies: () => dispatch(fetchMovies()),
-    createMovie: () => {
-      dispatch(createMovie({ name: Math.random() }));
-    },
-    increment: (movie, dir) => {
-      movie = { ...movie, ranking: movie.ranking + dir };
-      dispatch(updateMovie(movie));
-    },
-    deleteMovie: async (movie) => {
-      dispatch(deleteMovie(movie));
-    },
   };
 };
 
