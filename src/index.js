@@ -14,7 +14,6 @@ import store, {
 class _App extends Component {
   componentDidMount() {
     this.props.fetchMovies();
-    console.log(this.props);
   }
   render() {
     return (
@@ -24,12 +23,6 @@ class _App extends Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    movies: state.movies,
-  };
-};
 
 const mapDispatch = (dispatch) => {
   return {
@@ -47,7 +40,7 @@ const mapDispatch = (dispatch) => {
   };
 };
 
-const App = connect(mapStateToProps, mapDispatch)(_App);
+const App = connect(null, mapDispatch)(_App);
 
 const root = createRoot(document.querySelector("#root"));
 root.render(

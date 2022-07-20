@@ -3,6 +3,7 @@ const app = express();
 const path = require("path");
 const { conn, Movie } = require("./db");
 
+app.use(express.json());
 app.use("/dist", express.static("dist"));
 app.use("/assets", express.static("assets"));
 
@@ -23,6 +24,7 @@ app.get("/api/movies", async (req, res, next) => {
 
 app.post("/api/movies", async (req, res, next) => {
   try {
+    console.log(req.body);
     res.status(201).send(await Movie.create(req.body));
   } catch (ex) {
     next(ex);

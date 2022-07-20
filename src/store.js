@@ -35,8 +35,10 @@ const fetchMovies = () => {
 };
 
 const createMovie = (movie) => {
+  console.log(movie);
   return async (dispatch) => {
     movie = (await axios.post("/api/movies", movie)).data;
+    console.log(movie);
     dispatch({ type: "CREATE_MOVIE", movie });
   };
 };
